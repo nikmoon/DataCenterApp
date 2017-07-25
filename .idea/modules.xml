@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DataCenterApp.iml" filepath="$PROJECT_DIR$/DataCenterApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/subprojects/DataCenterMonitor/DataCenterMonitor.iml" filepath="$PROJECT_DIR$/subprojects/DataCenterMonitor/DataCenterMonitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/subprojects/LocalDataCenter/LocalDataCenter.iml" filepath="$PROJECT_DIR$/subprojects/LocalDataCenter/LocalDataCenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/libdatacenter/libdatacenter.iml" filepath="$PROJECT_DIR$/modules/libdatacenter/libdatacenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/modules.iml" filepath="$PROJECT_DIR$/modules/modules.iml" />
+      <module fileurl="file://$PROJECT_DIR$/subprojects/subprojects.iml" filepath="$PROJECT_DIR$/subprojects/subprojects.iml" />
+    </modules>
+  </component>
+</project>
