@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
  */
 
 public class TestServerModel {
+
     @Test
     public void addition_isCorrect() throws Exception {
 

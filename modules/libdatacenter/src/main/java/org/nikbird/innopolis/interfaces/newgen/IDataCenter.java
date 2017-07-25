@@ -12,11 +12,11 @@ public interface IDataCenter extends IServerRoom {
         void onConnectionEvent();
         void onAuthChanged();
         void onReady();
-        void onRackAdded(int index);
-        void onRackRemoved(int index);
-        void onServerAdded(IServer server);
-        void onServerRemoved(IRack rack, int index);
-        void onServerStateChanged(IServer server, ServerState prevState);
+        void onRackAdded(int rackIndex);
+        void onRackRemoved(int rackIndex);
+        void onServerAdded(int rackIndex, int serverIndex);
+        void onServerRemoved(int rackIndex, int serverIndex);
+        void onServerStateChanged(int rackIndex, int serverIndex, ServerState newState);
     }
 
     void addListener(IListener listener);
@@ -26,5 +26,5 @@ public interface IDataCenter extends IServerRoom {
     String eventMessage();
 
     void connect(String url);
-    void authRequest(String userName, String password);
+    void authenticate(String userName, String password);
 }

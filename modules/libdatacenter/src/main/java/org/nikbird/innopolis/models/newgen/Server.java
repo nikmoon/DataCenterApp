@@ -8,10 +8,10 @@ import org.nikbird.innopolis.interfaces.newgen.IServer;
  * Created by nikbird on 25.07.17.
  */
 
-public final class Server implements Cloneable, IServer {
+public final class Server implements IServer, Cloneable {
 
     private static int sId = 1;
-    private final static int newId() { return ++sId; }
+    private final static int newId() { return sId++; }
 
     private int mId;
     private String mName;
@@ -20,6 +20,10 @@ public final class Server implements Cloneable, IServer {
     private ServerState mState;
 
     public Server(String name, IRack container, int index, ServerState state) {
+        if (container == null)
+            throw new NullPointerException("Rack reference is null");
+        if (0 > index || index >= container.getCapacity())
+            throw new IndexOutOfBoundsException("Index out of rack bounds" + index);
         mId = newId();
         mName = name;
         mContainer = container;

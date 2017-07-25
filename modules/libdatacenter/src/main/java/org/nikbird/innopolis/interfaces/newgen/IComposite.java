@@ -9,4 +9,6 @@ public interface IComposite extends IComponent {
     int getItemCount();
     IComponent getItem(int index);
     IComponent[] getComponents();
+    void addItem(IComponent item);
+    void removeItem(IComponent item);
 }
