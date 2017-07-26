@@ -1,22 +1,19 @@
 package org.nikbird.innopolis.interfaces;
 
-
-import java.util.Iterator;
-
 /**
- * Created by nikbird on 15.07.17.
+ * Created by nikbird on 26.07.17.
  */
 
-public interface IServerRoom extends Iterator<IRack>, Iterable<IRack> {
-    int capacity();
-    int countRacks();
-    int availablePlace();
-    int availablePlaceForServers();
-    int countServers();
-    IRack getRack(int rackIndex);
-    IRack[] getRacks();
-    IServer[] getServers();
-    boolean removeRack(IRack rack);
-    boolean insertRack(IRack rack, int rackIndex);
-    IRack.RackPosition addRack(IRack rack);
+public interface IServerRoom {
+
+    interface RoomInfo {
+        int capacity();
+        int countRacks();
+        IRack.RackInfo rackInfo(int index);
+    }
+
+    RoomInfo getInfo();
+    IRack rack(int index);
+    void insertRack(IRack rack, int index);
+    IRack removeRack(int index);
 }

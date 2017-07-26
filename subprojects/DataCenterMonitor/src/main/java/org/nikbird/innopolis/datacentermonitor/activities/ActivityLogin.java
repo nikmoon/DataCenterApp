@@ -14,8 +14,6 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.nikbird.innopolis.datacentermonitor.R;
-import org.nikbird.innopolis.interfaces.IDataCenter;
-import org.nikbird.innopolis.interfaces.IServer;
 import org.nikbird.innopolis.datacentermonitor.services.ServiceDataCenter;
 
 public class ActivityLogin extends AppCompatActivity implements IDataCenter.IListener {

@@ -1,36 +1,61 @@
 package org.nikbird.innopolis.interfaces;
 
-import java.util.List;
+
 
 /**
- * Created by nikbird on 11.07.17.
+ * Created by nikbird on 26.07.17.
  */
 
 public interface IDataCenter {
 
-    interface IListener {
-        void onAuthenticationEvent();
-        void onServerAdded(IServer server);
-        void onServerRemoved(IServer server, IServer.ServerPosition prevPosition);
-        void onServerStateChanged(IServer server, IServer.State prevState);
-        void onReplicationEvent();
+    class RackAddress {
+        public int roomIndex;
+        public int rackIndex;
+        public RackAddress(int roomIndex, int rackIndex) {
+            this.roomIndex = roomIndex;
+            this.rackIndex = rackIndex;
+        }
     }
 
-    void authentication(String username, String password, String url);
-    void resetAuthentication();
-    boolean isAuthenticated();
-    String authErrorMessage();
+    class ServerAddress extends RackAddress {
+        public int serverIndex;
+        public ServerAddress(int roomIndex, int rackIndex, int serverIndex) {
+            super(roomIndex, rackIndex);
+            this.serverIndex = serverIndex;
+        }
+    }
 
-    void setEventListener(IListener listener);
-    void removeEventListener(IListener listener);
+    interface DataCenterInfo {
+        int countRooms();
 
+        boolean connectState();
+        String connectMessage();
 
-    boolean isReplicationComplete();
-    String replicationErrorMessage();
+        boolean authState();
+        String authMessage();
 
-    boolean hasProblem();
+        IServerRoom.RoomInfo roomInfo(int index);
+        IRack.RackInfo rackInfo(RackAddress address);
+        IServer.ServerState serverState(ServerAddress address);
+    }
 
-    int countRacks();
-    List<IServer> getProblemServers();
-    Iterable<IRack> rackIterable();
+    interface IListener {
+        void onConnectEvent();
+        void onAuthEvent();
+        void onReady();
+        void onRackAdded(RackAddress address, IRack.RackInfo info);
+        void onRackRemoved(RackAddress address);
+        void onServerAdded(ServerAddress address, IServer.ServerState state);
+        void onServerRemoved(ServerAddress address);
+        void onServerStateChanged(ServerAddress address, IServer.ServerState state);
+    }
+
+    void connect(String url);
+    void autenticate(String userName, String password);
+
+    DataCenterInfo getInfo();
+    IServerRoom serverRoom(int index);
+    IServerRoom.RoomInfo addServerRoom(IServerRoom room);
+    IServerRoom removeRack(int index);
+
 }

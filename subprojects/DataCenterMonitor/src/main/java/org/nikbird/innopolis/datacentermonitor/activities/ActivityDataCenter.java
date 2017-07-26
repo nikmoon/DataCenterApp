@@ -15,9 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.nikbird.innopolis.datacentermonitor.R;
-import org.nikbird.innopolis.interfaces.IDataCenter;
-import org.nikbird.innopolis.interfaces.IRack;
-import org.nikbird.innopolis.interfaces.IServer;
 import org.nikbird.innopolis.datacentermonitor.services.ServiceDataCenter;
 
 import java.util.HashMap;

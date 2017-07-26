@@ -7,14 +7,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.widget.Toast;
 
-import org.nikbird.innopolis.interfaces.IDataCenter;
-import org.nikbird.innopolis.interfaces.IRack;
-import org.nikbird.innopolis.interfaces.IServer;
-import org.nikbird.innopolis.interfaces.IServerRoom;
-import org.nikbird.innopolis.models.Rack;
-import org.nikbird.innopolis.models.Server;
-import org.nikbird.innopolis.models.ServerRoom;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
