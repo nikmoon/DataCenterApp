@@ -18,6 +18,7 @@ public class DataCenter implements IDataCenter {
     private String mConnectMessage;
     private boolean mAuthState;
     private String mAuthMessage;
+    private List<IListener> mListeners;
     private DataCenterInfo mInfo = new DataCenterInfo() {
         @Override public int countRooms() { return mRooms.size(); }
         @Override public boolean connectState() { return mConnectState; }
@@ -46,27 +47,61 @@ public class DataCenter implements IDataCenter {
     }
 
     @Override
-    public void autenticate(String userName, String password) {
+    public void authenticate(String userName, String password) {
 
     }
 
-    @Override
-    public DataCenterInfo getInfo() {
-        return null;
+    @Override public DataCenterInfo getInfo() {
+        return mInfo;
+    }
+    @Override public IServerRoom serverRoom(int index) {
+        return mRooms.get(index);
     }
 
     @Override
-    public IServerRoom serverRoom(int index) {
-        return null;
+    public void addListener(IListener listener) {
+        if (listener == null)
+            throw new NullPointerException("Listener cant be null");
+        if (containsReference(mListeners, listener) >= 0)
+            return;
+        mListeners.add(listener);
     }
 
     @Override
-    public IServerRoom.RoomInfo addServerRoom(IServerRoom room) {
-        return null;
+    public void removeListener(IListener listener) {
+        removeReference(mListeners, listener);
     }
 
     @Override
-    public IServerRoom removeRack(int index) {
-        return null;
+    public void addServerRoom(IServerRoom room) {
+        if (room == null)
+            throw new NullPointerException("Room reference cant be null");
+        if (containsReference(mRooms, room) >= 0)
+            return;
+        mRooms.add(room);
+    }
+
+    @Override
+    public IServerRoom removeServerRoom(IServerRoom room) {
+        int index = containsReference(mRooms, room);
+        if (index >= 0)
+            mRooms.remove(index);
+        return room;
+    }
+
+    public static int containsReference(List list, Object ref) {
+        for(int i = 0, count = list.size(); i < count; i++)
+            if (list.get(i) == ref)
+                return i;
+        return -1;
+    }
+
+    public static boolean removeReference(List list, Object ref) {
+        for(int i = 0, count = list.size(); i < count; i++)
+            if (list.get(i) == ref) {
+                list.remove(i);
+                return true;
+            }
+        return false;
     }
 }

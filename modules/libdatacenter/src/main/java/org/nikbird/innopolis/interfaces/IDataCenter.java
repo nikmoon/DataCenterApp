@@ -51,11 +51,15 @@ public interface IDataCenter {
     }
 
     void connect(String url);
-    void autenticate(String userName, String password);
+    void authenticate(String userName, String password);
 
     DataCenterInfo getInfo();
     IServerRoom serverRoom(int index);
-    IServerRoom.RoomInfo addServerRoom(IServerRoom room);
-    IServerRoom removeRack(int index);
+
+    void addListener(IListener listener);
+    void removeListener(IListener listener);
+
+    void addServerRoom(IServerRoom room);
+    IServerRoom removeServerRoom(IServerRoom room);
 
 }
