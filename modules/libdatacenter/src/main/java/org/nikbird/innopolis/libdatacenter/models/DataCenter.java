@@ -1,9 +1,9 @@
-package org.nikbird.innopolis.models;
+package org.nikbird.innopolis.libdatacenter.models;
 
-import org.nikbird.innopolis.interfaces.IDataCenter;
-import org.nikbird.innopolis.interfaces.IRack;
-import org.nikbird.innopolis.interfaces.IServer;
-import org.nikbird.innopolis.interfaces.IServerRoom;
+import org.nikbird.innopolis.libdatacenter.interfaces.IDataCenter;
+import org.nikbird.innopolis.libdatacenter.interfaces.IRack;
+import org.nikbird.innopolis.libdatacenter.interfaces.IServer;
+import org.nikbird.innopolis.libdatacenter.interfaces.IServerRoom;
 
 import java.util.List;
 

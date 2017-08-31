@@ -1,4 +1,4 @@
-package org.nikbird.innopolis.interfaces;
+package org.nikbird.innopolis.libdatacenter.interfaces;
 
 
 

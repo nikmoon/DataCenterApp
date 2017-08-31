@@ -1,6 +1,6 @@
-package org.nikbird.innopolis.models;
+package org.nikbird.innopolis.libdatacenter.models;
 
-import org.nikbird.innopolis.interfaces.IServer;
+import org.nikbird.innopolis.libdatacenter.interfaces.IServer;
 
 /**
  * Created by nikbird on 26.07.17.

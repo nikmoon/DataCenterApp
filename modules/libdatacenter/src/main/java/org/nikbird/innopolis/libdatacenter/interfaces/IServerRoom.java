@@ -1,4 +1,4 @@
-package org.nikbird.innopolis.interfaces;
+package org.nikbird.innopolis.libdatacenter.interfaces;
 
 /**
  * Created by nikbird on 26.07.17.
